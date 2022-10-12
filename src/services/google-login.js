@@ -22,7 +22,9 @@ const getUser = (setUsuario, usuario, dispatch) => {
       dispatch(updateUserState({
         userName: "google:"+resObject.user.id,
         defaultShippingAddress: resObject.shipping,
-        role: resObject.role
+        role: resObject.role,
+        billingAddress: resObject.billingAddress,
+        logged:true
       }))
       setUsuario({
         ...usuario,
