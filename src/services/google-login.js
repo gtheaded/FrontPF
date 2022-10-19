@@ -1,22 +1,7 @@
 import { BACK_URL } from "../constantes";
 import { updateUserState } from "../redux/action";
-import axios from 'axios';
 
-
-
-const getUser = async (setUsuario, usuario, dispatch) =>{
- const usuarie = await axios.get(`${BACK_URL}/auth/login/success`, {withCredentials: true }).then((response)=>{
-  if(response.data){
-    console.log(response)
-  }
- })
-
-}
-
-export default getUser;
-
-
-/* const getUser = (setUsuario, usuario, dispatch) => {
+const getUser = (setUsuario, usuario, dispatch) => {
   fetch(`${BACK_URL}/auth/login/success`, {
     method: "GET",
     credentials: "include",
@@ -53,4 +38,4 @@ export default getUser;
     });
 };
 
-export default getUser; */
+export default getUser;
