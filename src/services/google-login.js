@@ -1,7 +1,30 @@
 import { BACK_URL } from "../constantes";
 import { updateUserState } from "../redux/action";
+import axios from 'axios';
 
-const getUser = (setUsuario, usuario, dispatch) => {
+
+
+const getUser = async (setUsuario, usuario, dispatch) =>{
+ const usuarie = await axios.get(`${BACK_URL}/auth/login/success`, {withCredentials: true }).then((response)=>{
+  if(response.data){
+    console.log(response)
+  }
+ })
+
+dispatch(updateUserState({
+  userName: "google:"+usuarie.data.user.id,
+  defaultShippingAddress: usuarie.shipping,
+  role: usuarie.role,
+  billingAddress: usuarie.billingAddress,
+  logged:true
+}))
+ console.log('<<<<<<<<<<<<<>>>>>>>>>>>user: ', usuarie.data)
+}
+
+export default getUser;
+
+
+/* const getUser = (setUsuario, usuario, dispatch) => {
   fetch(`${BACK_URL}/auth/login/success`, {
     method: "GET",
     credentials: "include",
@@ -38,4 +61,4 @@ const getUser = (setUsuario, usuario, dispatch) => {
     });
 };
 
-export default getUser;
+export default getUser; */
