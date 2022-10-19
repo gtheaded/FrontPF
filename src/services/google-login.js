@@ -7,7 +7,7 @@ import axios from 'axios';
 const getUser = async (setUsuario, usuario, dispatch) =>{
  const usuarie = await axios.get(`${BACK_URL}/auth/login/success`, {withCredentials: true }).then((response)=>{
   if(response.data){
-    console.log(response)
+    console.log('<<<<<<<>>>>>>>>>response:', response)
   }
  })
 
