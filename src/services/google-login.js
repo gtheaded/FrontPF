@@ -17,7 +17,7 @@ dispatch(updateUserState({
   billingAddress: usuario.billingAddress,
   logged:true
 }))
- console.log('<<<<<<<<<<<<<>>>>>>>>>>>user: ', user)
+ console.log('<<<<<<<<<<<<<>>>>>>>>>>>user: ', usuario)
 }
 
 export default getUser;
