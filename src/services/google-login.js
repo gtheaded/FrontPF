@@ -5,11 +5,7 @@ import axios from 'axios';
 
 
 const getUser = async (setUsuario, usuario, dispatch) =>{
- const usuarie = await axios.get(`${BACK_URL}/auth/login/success`, {withCredentials: true,  headers: {
-  Accept: "application/json",
-  "Content-Type": "application/json",
-  "Access-Control-Allow-Credentials": true,
-} })
+ const usuarie = await axios.get(`${BACK_URL}/auth/login/success`, {withCredentials: true })
 console.log('<<<<<<<<<<<<<>>>>>>>>>>>user: ', usuarie.data)
 dispatch(updateUserState({
   userName: "google:"+usuarie.data.user.id,
