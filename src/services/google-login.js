@@ -8,18 +8,18 @@ const getUser = async (setUsuario, usuario, dispatch) =>{
  const usuarie = await axios.get(`${BACK_URL}/auth/login/success`, {withCredentials: true }).then((response)=>{
   if(response.data){
     console.log('<<<<<<<>>>>>>>>>response.data:', response.data)
+    dispatch(updateUserState({
+      userName: "google:"+response.data.user.id,
+      defaultShippingAddress: response.data.shipping,
+      role: response.data.role,
+      billingAddress: response.data.billingAddress,
+      logged:true
+    }))
+    }
   }
- })
+ )}
 
-dispatch(updateUserState({
-  userName: "google:"+usuarie.data.user.id,
-  defaultShippingAddress: usuarie.shipping,
-  role: usuarie.role,
-  billingAddress: usuarie.billingAddress,
-  logged:true
-}))
- console.log('<<<<<<<<<<<<<>>>>>>>>>>>user: ', usuarie.data)
-}
+
 
 export default getUser;
 
