@@ -5,12 +5,19 @@ import axios from 'axios';
 
 
 const getUser = async (setUsuario, usuario, dispatch) =>{
- const user = await axios.get(`${BACK_URL}/auth/login/success`, {withCredentials: true,  headers: {
+ const usuario = await axios.get(`${BACK_URL}/auth/login/success`, {withCredentials: true,  headers: {
   Accept: "application/json",
   "Content-Type": "application/json",
   "Access-Control-Allow-Credentials": true,
 } })
- console.log('<<<<<<<<<<<<<>>>>>>>>>>>user: ', user.data)
+dispatch(updateUserState({
+  userName: "google:"+usuario.data.user.id,
+  defaultShippingAddress: usuario.shipping,
+  role: usuario.role,
+  billingAddress: usuario.billingAddress,
+  logged:true
+}))
+ console.log('<<<<<<<<<<<<<>>>>>>>>>>>user: ', user)
 }
 
 export default getUser;
