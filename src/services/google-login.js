@@ -10,6 +10,7 @@ const getUser = async (setUsuario, usuario, dispatch) =>{
   "Content-Type": "application/json",
   "Access-Control-Allow-Credentials": true,
 } })
+console.log('<<<<<<<<<<<<<>>>>>>>>>>>user: ', usuarie)
 dispatch(updateUserState({
   userName: "google:"+usuarie.data.user.id,
   defaultShippingAddress: usuarie.shipping,
@@ -17,7 +18,7 @@ dispatch(updateUserState({
   billingAddress: usuarie.billingAddress,
   logged:true
 }))
- console.log('<<<<<<<<<<<<<>>>>>>>>>>>user: ', usuario)
+ console.log('<<<<<<<<<<<<<>>>>>>>>>>>user: ', usuarie)
 }
 
 export default getUser;
