@@ -5,5 +5,5 @@
 
 //mio
 
-export const BACK_URL = "https://backpf-production-efea.up.railway.app/"
+export const BACK_URL = "backpf-production-efea.up.railway.app"
 export const FRONT_URL= "https://frontpf-swart.vercel.app"
